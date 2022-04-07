@@ -8,16 +8,26 @@
 
 
 // Quanti chilometri vuoi fare?
-const userMeter= parselnt(prompt(`Quanti chilometri vuoi fare?`));
+const userMeter = parseInt(prompt(`Quanti chilometri vuoi fare?`));
 console.log(userMeter, typeof(userMater));
 
 // Quanti anni hai? 
-const userAge = prompt(`Quanti anni hai?`);
+const userAge = parseInt(prompt(`Quanti anni hai?`));
 console.log(userAge);
 
 // Calcolare prezzo intero 
 let fullPrice = userMeter * 0.21 ;
+
+// Hai più di 18 anni?
+if(userAge < 18){
+    fullPrice = fullPrice - (fullPrice * 20 / 100);
+} else if (userAge >= 65){
+    fullPrice = fullPrice - (fullPrice * 40 / 100);
+}
 console.log(fullPrice);
+
+// Infine scrivi su Html
+document.getElementById(`final-price`).innerHTML = fullPrice;
 
 
 
